@@ -1,4 +1,4 @@
-import { createMemoryHistory, createRouter } from 'vue-router'
+import { createWebHistory, createRouter } from 'vue-router'
 import LoginView from './views/login-view.vue';
 import ChatView from './views/chat-view.vue';
 
@@ -9,6 +9,6 @@ const routes = [
 ];
 
 export const router = createRouter({
-    history: createMemoryHistory(),
-    routes
+    history: createWebHistory(),
+    routes 
 })

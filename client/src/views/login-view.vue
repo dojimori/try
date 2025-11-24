@@ -1,12 +1,16 @@
 <template>
 
-    <form v-motion-fade class="bg-white p-4 w-[300px] border border-slate-400 shadow-md">
+    <form 
+        v-motion-fade 
+        class="bg-white p-4 w-[300px] border border-slate-400 shadow-md"
+        @submit.prevent="submitHandler"
+    >
 
         <h4 class="text-lg">join chat</h4>
         <div class="border w-full border-gray-300"></div>
 
         <div class="mt-4">
-            <input type="text" placeholder="Username"
+            <input type="text" placeholder="Username" v-model="username"
                 class="border border-gray-400 px-4 py-1.5 w-full shadow-inner outline-none">
             <button class="w-full p-1.5 text-white mt-2 shadow-inner cursor-pointer "><span class="font-bold tracking-wider">enter</span></button>
         </div>
@@ -54,8 +58,18 @@ input:focus {
 <script>
 
 export default {
+    name: 'LoginView',
     data() {
-        return {}
+        return {
+            username: ''
+        }
+    },
+
+    methods: {
+        submitHandler() {
+            localStorage.setItem('username', this.username);
+            this.$router.push('/chat')
+        }
     }
 
 }
