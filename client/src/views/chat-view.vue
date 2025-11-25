@@ -53,7 +53,7 @@
 
       <!-- chat actions -->
       <form
-        class="flex gap-2 p-2 bg-gray-100 border-t-2 border-gray-200"
+        class="flex gap-2 p-2 bg-gray-100 border-t-2 border-gray-200 relative"
         @submit.prevent="sendMessage"
       >
         <input
@@ -63,8 +63,15 @@
           class="flex-1 shadow-inner outline-none border border-gray-200 p-2 text-sm bg-gray-50 rounded-xs"
         />
 
+        <!-- emoji container -->
+        <div
+          class="absolute bottom-full right-30 z-10 mb-2 bg-gray-100 rounded-xs border border-gray-200 p-4"
+        >
+          <img src="/assets/emojis/bento-box.gif" alt="" class="emoji" />
+        </div>
+
         <button type="button" class="emoji-btn text-xs cursor-pointer text-gray-600 mx-2">
-          <i class="ph ph-smiley text-lg" id="emoji-icon"></i>
+          <i class="ph ph-smiley text-lg"></i>
         </button>
 
         <button
@@ -104,9 +111,18 @@ input:focus {
   transition: all 0.3s ease;
 }
 
+.emoji {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
 .emoji-btn:hover {
   scale: 1.2;
   transform: rotate(-15deg);
+}
+
+.emoji:hover {
+  scale: 1.2;
 }
 
 @keyframes lift {
@@ -141,6 +157,7 @@ export default {
       messages: [],
       message: "",
       currentTime: new Date().toLocaleTimeString([], { timeStyle: "short" }),
+      showEmoji: false,
     };
   },
 

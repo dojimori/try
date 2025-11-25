@@ -42,6 +42,12 @@
 button {
   background-color: #29487d;
   background: linear-gradient(rgb(98, 122, 173), rgb(89, 114, 168));
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  scale: 1.1;
+  transform: rotate(1deg);
 }
 
 input {
