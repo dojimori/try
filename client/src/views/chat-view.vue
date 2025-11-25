@@ -37,7 +37,7 @@
           </div>
           <p class="font-bold text-[#29487d]">
             {{ data.username }}
-            <span class="text-gray-400 font-normal">8:30 AM</span>
+            <span class="text-gray-400 font-normal">{{ data.time }}</span>
           </p>
         </div>
       </div>
@@ -114,12 +114,17 @@ export default {
     return {
       messages: [],
       message: "",
+      currentTime: new Date().toLocaleTimeString([], { timeStyle: "short" }),
     };
   },
+
   methods: {
     sendMessage() {
       // Replace to communicate with an API later
-      socket.emit("chat:message", this.message);
+      socket.emit("chat:message", {
+        message: this.message,
+        time: this.currentTime,
+      });
       // this.messages.push(this.message)
       this.message = "";
     },
@@ -142,6 +147,7 @@ export default {
     socket.on("chat:message", (data) => {
       this.messages.push({
         message: data.message,
+        time: data.time,
         username: data.username,
       });
       this.scrollToBottom();

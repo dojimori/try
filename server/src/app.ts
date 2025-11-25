@@ -18,7 +18,8 @@ io.on('connection', (socket) => {
 
   socket.on('chat:message', (data) => {
     io.emit('chat:message', {
-        message: data,
+        message: data.message,
+        time: data.time,
         username: users.get(socket.id)
     }); 
     const user = users.get(socket.id);
