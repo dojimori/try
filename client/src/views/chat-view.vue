@@ -44,7 +44,8 @@
             </p>
           </div>
           <!-- joined message -->
-          <div v-else-if="data.type == 'joined'" class="text-center">
+          <!-- <div v-else-if="data.type == 'joined'" class="text-center"> -->
+          <div v-else class="text-center">
             <small class="text-gray-600">{{ data.message }}</small>
           </div>
         </div>
@@ -158,7 +159,20 @@ export default {
         message: data,
         type: "joined",
       });
+
+      this.scrollToBottom();
     });
+
+    socket.on("left", (data) => {
+      // console.log(data);
+      this.messages.push({
+        message: data,
+        type: "left",
+      });
+
+      this.scrollToBottom();
+    });
+
     socket.on("chat:message", (data) => {
       this.messages.push({
         message: data.message,

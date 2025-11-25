@@ -38,7 +38,8 @@ io.on('connection', (socket) => {
   })
 
   socket.on('disconnect', () => {
-    console.log('user disconnected');
+    const username = users.get(socket.id);
+    io.emit('left', `${username} left the chat`)
   });
 
 });
