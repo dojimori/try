@@ -16,14 +16,9 @@
         class="border border-gray-400 px-4 py-1.5 w-full shadow-inner outline-none"
       />
       <button
-        class="enter-btn w-full p-1.5 text-white mt-2 shadow-inner cursor-pointer hover:shadow-md"
+        class="w-full p-1.5 text-white mt-2 shadow-inner cursor-pointer hover:shadow-md"
       >
         <span class="font-bold tracking-wider">enter</span>
-      </button>
-      <button
-        class="text-[#29487d] w-full p-1.5 mt-2 shadow-inner border border-gray-200 cursor-pointer hover:scale-105 duration-200 transition-all ease-in"
-      >
-        <router-link to="/register"><span class="font-bold">register</span></router-link>
       </button>
     </div>
   </form>
@@ -46,13 +41,13 @@
 </template>
 
 <style scoped>
-.enter-btn {
-  /* background-color: #29487d; */
+button {
+  background-color: #29487d;
   background: linear-gradient(rgb(98, 122, 173), rgb(89, 114, 168));
   transition: all 0.3s ease;
 }
 
-.enter-btn:hover {
+button:hover {
   scale: 1.1;
   transform: rotate(1deg);
 }

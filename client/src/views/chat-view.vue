@@ -194,7 +194,7 @@ export default {
 
   methods: {
     sendMessage() {
-      // Replace to communicate with an API later
+      // TODO: replace to communicate with an API later
 
       if (this.message.trim() == "") return;
 
