@@ -1,6 +1,7 @@
 import express,  { Request, Response } from "express"
 import http from 'http'
 import { Server } from 'socket.io'
+import authRoute from './routes/auth.route'
 
 const app = express();
 const server = http.createServer(app)
@@ -9,6 +10,7 @@ const io = new Server(server, {
 });
 
 app.use(express.json())
+app.use('/api/auth', authRoute);
 
 const users = new Map();
 
