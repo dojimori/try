@@ -4,7 +4,7 @@
     class="bg-white p-4 w-[300px] border border-slate-400 shadow-md"
     @submit.prevent="submitHandler"
   >
-    <h4 class="text-lg">join chat</h4>
+    <h4 class="text-lg">register</h4>
     <div class="border w-full border-gray-300"></div>
 
     <div class="mt-4">
@@ -15,10 +15,28 @@
         name="username"
         class="border border-gray-400 px-4 py-1.5 w-full shadow-inner outline-none"
       />
+
+      <input
+        type="text"
+        placeholder="Password"
+        v-model="username"
+        name="password"
+        class="border border-gray-400 px-4 py-1.5 w-full shadow-inner outline-none mt-2"
+      />
+
       <button
-        class="w-full p-1.5 text-white mt-2 shadow-inner cursor-pointer hover:shadow-md"
+        class="w-full p-1.5 text-white mt-2 shadow-inner cursor-pointer hover:shadow-md enter-btn"
       >
-        <span class="font-bold tracking-wider">enter</span>
+        <span class="font-bold tracking-wider">register</span>
+      </button>
+
+      <button
+        class="text-[#29487d] w-full p-1.5 mt-2 shadow-inner border border-gray-200 cursor-pointer hover:scale-105 duration-200 transition-all ease-in flex items-center gap-2"
+      >
+        <i class="ph ph-arrow-left text-gray-600"></i>
+        <router-link to="/" class="flex-1 text-center">
+          <span class="font-bold">back</span></router-link
+        >
       </button>
     </div>
   </form>
@@ -41,13 +59,13 @@
 </template>
 
 <style scoped>
-button {
+.enter-btn {
   background-color: #29487d;
   background: linear-gradient(rgb(98, 122, 173), rgb(89, 114, 168));
   transition: all 0.3s ease;
 }
 
-button:hover {
+.enter-btn:hover {
   scale: 1.1;
   transform: rotate(1deg);
 }
