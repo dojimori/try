@@ -10,7 +10,7 @@
       <span
         v-motion-fade
         v-if="errorMessage"
-        class="w-full bg-red-200 border border-red-300 p-2 text-red-800"
+        class="flex-1 bg-red-100 border border-red-300-300 p-2 text-red-800 shadow-inner"
         >{{ errorMessage }}</span
       >
     </div>
@@ -139,7 +139,7 @@ export default {
     async register() {
       try {
         this.isLoading = true;
-        const response = await fetch("http://localhost:3000/api/auth/register", {
+        const response = await fetch("http://localhost:8080/api/auth/register", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

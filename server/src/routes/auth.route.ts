@@ -90,8 +90,8 @@ router.post('/login', async (req: Request, res: Response) => {
         }
 
         req.session.user = { id: user.id, username: user.username };
-
-        return res.status(200).json({ message: 'Login successfully.'});
+    
+        return res.status(200).json({ message: 'Login successfully.', user });
     } catch(error) {
         console.log(error)
         return res.status(500).json({ message: 'Login failed :('});
@@ -102,6 +102,8 @@ router.post('/logout', async (req: Request, res: Response) => {
     req.session.destroy(() => {
         console.log('Session destroyed');
     });
+
+    return res.json({ message: 'Logged out'})
 })
 
 export default router;

@@ -2,16 +2,16 @@
   <form
     v-motion-fade
     class="bg-white p-4 w-[300px] border border-slate-400 shadow-md"
-    @submit.prevent="submitHandler"
+    @submit.prevent="login"
   >
     <h4 class="text-lg">join chat</h4>
     <div class="border w-full border-gray-300 mb-4"></div>
     <div class="flex items-center justify-center">
       <span
         v-motion-fade
-        v-if="queryMessage"
-        class="flex-1 bg-green-200 border border-green-300 p-2 text-green-800 shadow-inner"
-        >{{ queryMessage }}</span
+        v-if="errorMessage"
+        class="flex-1 bg-red-100 border border-red-300-300 p-2 text-red-800 shadow-inner"
+        >{{ errorMessage }}</span
       >
     </div>
 
@@ -25,17 +25,19 @@
       />
 
       <input
-        type="text"
+        type="password"
         placeholder="Password"
-        v-model="username"
+        v-model="password"
         name="password"
         class="border border-gray-400 px-4 py-1.5 w-full shadow-inner outline-none mt-2"
       />
 
       <button
-        class="enter-btn w-full p-1.5 text-white mt-2 shadow-inner cursor-pointer hover:shadow-md"
+        :disabled="isLoading"
+        class="w-full p-1.5 text-white mt-2 shadow-inner flex items-center justify-center cursor-pointer hover:shadow-md enter-btn"
       >
-        <span class="font-bold tracking-wider">enter</span>
+        <vue-spinner v-if="isLoading" size="20"></vue-spinner>
+        <span v-else class="font-bold tracking-wider">login</span>
       </button>
       <button
         class="text-[#29487d] w-full p-1.5 mt-2 shadow-inner border border-gray-200 cursor-pointer hover:scale-105 duration-200 transition-all ease-in"
@@ -104,11 +106,18 @@ input:focus {
 </style>
 
 <script>
+import { VueSpinner } from "vue3-spinners";
 export default {
   name: "LoginView",
+  components: {
+    VueSpinner,
+  },
   data() {
     return {
       username: "",
+      password: "",
+      isLoading: false,
+      errorMessage: null,
     };
   },
 
@@ -118,11 +127,43 @@ export default {
     },
   },
 
+  // TODO: submit creds to http://localhost:3000/api/auth/login
+
   methods: {
     submitHandler() {
       if (!this.username.trim()) return;
       localStorage.setItem("username", this.username.trim());
       this.$router.push("/chat");
+    },
+
+    async login() {
+      try {
+        this.isLoading = true;
+        const response = await fetch("http://localhost:8080/api/auth/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username: this.username, password: this.password }),
+        });
+
+        const data = await response.json();
+        console.log(data);
+
+        if (response.status == 409 || response.status == 500) {
+          this.errorMessage = data.message;
+        }
+
+        // if (response.statusText == "OK") {
+        localStorage.setItem("user", JSON.stringify(data.user));
+        // }
+
+        this.$router.push("/chat");
+      } catch (error) {
+        console.error(error);
+      } finally {
+        this.isLoading = false;
+      }
     },
   },
 };
