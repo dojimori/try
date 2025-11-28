@@ -68,8 +68,12 @@ router.post('/register', async (req: Request, res: Response) => {
 
 router.post('/login', async (req: Request, res: Response) => {
     try {
+        if (req.session.user) return res.status(409).json({ message: 'Session already exists.'})
+;
+
         const { username, password } = req.body;
         console.log('body', req.body);
+
         if (username.trim() == '' || password.trim() == '') {
             return res.status(409).json({ message: 'Please fill in missing fields.'})
         }
