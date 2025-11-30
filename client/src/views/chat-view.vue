@@ -1,14 +1,7 @@
 <template>
   <!-- main window -->
   <div class="flex flex-col md:flex-row justify-center gap-2 w-full mx-auto p-4">
-    <!-- user profile section -->
-    <div class="bg-white border border-gray-200 p-4 shadow-lg md:w-[250px] w-full">
-      <div>
-        <h2 class="font-bold text-[#29487d] mb-4 border-b border-gray-300 pb-2">Me</h2>
-        <div class="flex flex-col gap-2"></div>
-      </div>
-    </div>
-
+    <user-information></user-information>
     <!-- Chat Section -->
     <div class="flex-1 bg-white shadow-lg shadow-blue-100 w-[600px]">
       <!-- chat box -->
@@ -118,30 +111,7 @@
       </div>
     </div>
 
-    <!-- Users List Section -->
-    <div class="bg-white border border-gray-200 p-4 shadow-lg md:w-[250px] w-full">
-      <div>
-        <h2 class="font-bold text-[#29487d] mb-4 border-b border-gray-300 pb-2">
-          Active Users
-        </h2>
-        <div class="flex flex-col gap-2">
-          <!-- TODO: replace with your actual user list -->
-          <div
-            class="flex items-center cursor-pointer gap-2 p-2 hover:bg-gray-50 rounded"
-          >
-            <!-- <div class="w-8 h-8 bg-blue-200 rounded-full"></div> -->
-            <img src="/def_pfp_2.jpg" class="pfp" />
-            <span class="text-sm">nko</span>
-          </div>
-          <div
-            class="flex items-center gap-2 cursor-pointer p-2 hover:bg-gray-50 rounded"
-          >
-            <img src="/def_pfp_3.jpg" class="pfp" />
-            <span class="text-sm">yohiori</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <active-users></active-users>
   </div>
 </template>
 
@@ -240,10 +210,15 @@ import { socket } from "@/utils/socket";
 import EmojiPicker from "@/components/emoji-picker.vue";
 import { getMe } from "@/utils/user";
 import { emojis } from "@/utils/emojis";
+import ActiveUsers from "@/components/active-users.vue";
+import UserInformation from "@/components/user-information.vue";
+
 export default {
   name: "ChatView",
   components: {
     EmojiPicker,
+    ActiveUsers,
+    UserInformation,
   },
   data() {
     return {
