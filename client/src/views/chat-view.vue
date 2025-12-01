@@ -176,8 +176,8 @@ img:hover {
 }
 
 :deep(.message-emoji) {
-  width: 20px;
-  height: 20px;
+  width: 25;
+  height: 25px;
   display: inline-block;
   vertical-align: middle;
   margin: 0 2px;
