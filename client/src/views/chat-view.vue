@@ -16,10 +16,10 @@
         <div class="text-center border-b border-gray-300 py-2 flex justify-between px-2">
           <h2 class="font-bold text-[#29487d]">Open Line</h2>
           <button
-            @click="logout"
-            class="logout-btn text-white py-0.5 px-1.5 cursor-pointer rounded-sm"
+            class="bg-slate-300 px-3 py-1.5 border border-slate-400 text-[#29487d] font-bold cursor-pointer flex items-center gap-2 hover:bg-slate-200 hover:translate-y-[-3px] duration-200"
           >
-            logout
+            <ph-sign-out></ph-sign-out>
+            Logout
           </button>
         </div>
 
@@ -103,9 +103,9 @@
 
           <button
             type="submit"
-            class="send-btn text-xs cursor-pointer text-white p-2 shadow-inner"
+            class="send-btn font-bold cursor-pointer text-white px-4 py-2 shadow-inner border border-slate-800 hover:opacity-90 hover:translate-y-[-3px] duration-200"
           >
-            send
+            <ph-paper-plane-right :size="14" weight="fill"></ph-paper-plane-right>
           </button>
         </form>
       </div>
@@ -141,8 +141,7 @@ input {
   object-fit: cover;
 }
 
-.send-btn,
-.logout-btn {
+.send-btn {
   background-color: #29487d;
   background: linear-gradient(rgb(98, 122, 173), rgb(89, 114, 168));
 }
@@ -212,6 +211,7 @@ import { getMe } from "@/utils/user";
 import { emojis } from "@/utils/emojis";
 import ActiveUsers from "@/components/active-users.vue";
 import UserInformation from "@/components/user-information.vue";
+import { PhSignOut, PhPaperPlaneRight } from "@phosphor-icons/vue";
 
 export default {
   name: "ChatView",
@@ -219,6 +219,8 @@ export default {
     EmojiPicker,
     ActiveUsers,
     UserInformation,
+    PhSignOut,
+    PhPaperPlaneRight,
   },
   data() {
     return {
