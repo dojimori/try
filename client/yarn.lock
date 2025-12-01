@@ -475,6 +475,11 @@
     unctx "^2.4.1"
     untyped "^2.0.0"
 
+"@phosphor-icons/vue@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@phosphor-icons/vue/-/vue-2.2.1.tgz#e836db5c56e15b04bdad99195308e24597a82b4e"
+  integrity sha512-3RNg1utc2Z5RwPKWFkW3eXI/0BfQAwXgtFxPUPeSzi55jGYUq16b+UqcgbKLazWFlwg5R92OCLKjDiJjeiJcnA==
+
 "@polka/url@^1.0.0-next.24":
   version "1.0.0-next.29"
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.29.tgz#5a40109a1ab5f84d6fd8fc928b19f367cbe7e7b1"
