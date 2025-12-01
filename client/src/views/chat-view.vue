@@ -16,6 +16,7 @@
         <div class="text-center border-b border-gray-300 py-2 flex justify-between px-2">
           <h2 class="font-bold text-[#29487d]">Open Line</h2>
           <button
+            @click="logout"
             class="bg-slate-300 px-3 py-1.5 border border-slate-400 text-[#29487d] font-bold cursor-pointer flex items-center gap-2 hover:bg-slate-200 hover:translate-y-[-3px] duration-200"
           >
             <ph-sign-out></ph-sign-out>
