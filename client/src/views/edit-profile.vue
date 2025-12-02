@@ -3,7 +3,7 @@
     <div class="flex items-center gap-4 border-b pb-2 border-gray-400">
       <router-link
         to="/chat"
-        class="bg-slate-300 px-3 py-1.5 border border-slate-400 text-[#29487d] font-bold cursor-pointer flex items-center gap-2 hover:bg-slate-200 hover:translate-y-[-2px] duration-200"
+        class="bg-slate-300 px-3 py-1.5 border border-slate-400 text-[#29487d] font-bold cursor-pointer flex items-center gap-2 hover:bg-slate-200 hover:translate-y-[-1.5px] duration-200"
       >
         <ph-arrow-bend-down-left></ph-arrow-bend-down-left>
         Back
@@ -11,7 +11,7 @@
 
       <button
         style="background: linear-gradient(rgb(98, 122, 173), rgb(89, 114, 168))"
-        class="bg-[#29487d] text-white px-3 py-1.5 border border-slate-400 font-bold cursor-pointer flex items-center gap-2 hover:translate-y-[-2px] duration-200"
+        class="bg-[#29487d] text-white px-3 py-1.5 border border-slate-400 font-bold cursor-pointer flex items-center gap-2 hover:translate-y-[-1.5px] duration-200"
       >
         <ph-floppy-disk></ph-floppy-disk>
         Save
@@ -36,7 +36,7 @@
               type="text"
               id="username"
               :value="user ? user.username : ''"
-              class="border w-full border-gray-400 outline-none p-2 shadow-inner focus:translate-y-[-3px] focus:border-blue-900 focus:shadow-none duration-200"
+              class="border w-full border-gray-400 outline-none p-2 shadow-inner focus:translate-y-[-1.2px] focus:border-blue-900 focus:shadow-none duration-200"
             />
           </div>
         </div>
