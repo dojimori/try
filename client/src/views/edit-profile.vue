@@ -1,5 +1,5 @@
 <template>
-  <div class="md:w-[800px] h-[600px] bg-white shadow-md p-4" v-motion-fade>
+  <div class="md:w-[1020px] h-[700px] bg-white shadow-md p-4" v-motion-fade>
     <div class="flex items-center gap-4 border-b pb-2 border-gray-400">
       <router-link
         to="/chat"

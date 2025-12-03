@@ -3,14 +3,14 @@
   <div class="flex flex-col md:flex-row justify-center gap-2 w-full mx-auto p-4">
     <user-information></user-information>
     <!-- Chat Section -->
-    <div class="flex-1 bg-white shadow-lg shadow-blue-100 w-[600px]">
+    <div class="flex-1 bg-white shadow-lg shadow-blue-100 w-[900px] h-[700px] flex">
       <!-- chat box -->
       <div
         v-motion
         :initial="{ opacity: 0, y: 100 }"
         :enter="{ opacity: 1, y: 0 }"
         :duration="300"
-        class="shadow-xl"
+        class="shadow-xl flex-1 flex flex-col justify-between"
       >
         <!-- chat header -->
         <div class="text-center border-b border-gray-300 py-2 flex justify-between px-2">
@@ -25,7 +25,7 @@
         </div>
 
         <!-- chat-body -->
-        <div class="h-[60vh] p-2 flex flex-col gap-3 overflow-y-scroll" ref="chatBox">
+        <div class="p-2 flex-1 flex flex-col gap-3 overflow-y-scroll" ref="chatBox">
           <div
             v-motion
             :initial="{ opacity: 0, x: -50 }"
