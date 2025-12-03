@@ -156,7 +156,7 @@ export default {
         //   body: JSON.stringify({ username: this.username, password: this.password }),
         // });
 
-        const response = await authApi.login(username, password);
+        const response = await authApi.login(this.username, this.password);
 
         // const data = await response.json();
         const { data } = response;
