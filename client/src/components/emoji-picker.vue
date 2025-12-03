@@ -38,6 +38,10 @@
   transition: all 0.3s ease;
   object-fit: cover;
 }
+
+.emoji:active {
+  scale: 0.5;
+}
 </style>
 
 <script>
