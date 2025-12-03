@@ -8,7 +8,7 @@
         <h2 class="font-bold text-[#29487d]">Me</h2>
         <router-link
           to="/profile/edit"
-          class="bg-slate-300 px-3 py-1.5 border border-slate-400 text-[#29487d] font-bold cursor-pointer flex items-center gap-2 hover:bg-slate-200 hover:translate-y-[-3px] duration-200"
+          class="bg-slate-100 px-3 py-1.5 border border-slate-400 text-[#29487d] font-bold cursor-pointer flex items-center gap-2 hover:bg-slate-200 hover:translate-y-[-3px] duration-200"
         >
           <ph-pencil-simple></ph-pencil-simple>
           edit profile

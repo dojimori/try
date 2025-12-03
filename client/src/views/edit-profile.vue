@@ -1,9 +1,9 @@
 <template>
-  <div class="md:w-[1020px] h-[700px] bg-white shadow-md p-4" v-motion-fade>
+  <div class="md:w-[1020px] overflow-auto h-[700px] bg-white shadow-md p-4" v-motion-fade>
     <div class="flex items-center gap-4 border-b pb-2 border-gray-400">
       <router-link
         to="/chat"
-        class="bg-slate-300 px-3 py-1.5 border border-slate-400 text-[#29487d] font-bold cursor-pointer flex items-center gap-2 hover:bg-slate-200 hover:translate-y-[-1.5px] duration-200"
+        class="bg-slate-100 px-3 py-1.5 border border-slate-400 text-[#29487d] font-bold cursor-pointer flex items-center gap-2 hover:bg-slate-200 hover:translate-y-[-1.5px] duration-200"
       >
         <ph-arrow-bend-down-left></ph-arrow-bend-down-left>
         Back
@@ -21,9 +21,9 @@
     </div>
 
     <!-- form -->
-    <div class="flex flex-col justify-center">
-      <div class="w-full flex justify-between gap-8">
-        <img src="/def_pfp_1.jpg" alt="" class="object-cover w-[100px]" />
+    <div class="flex flex-col justify-center mt-2">
+      <div class="w-full flex justify-between gap-8 items-center">
+        <img src="/def_pfp_1.jpg" alt="" class="object-cover w-20 h-20" />
 
         <div class="flex-1 flex flex-col gap-2 p-2">
           <input
@@ -41,6 +41,78 @@
           </div>
         </div>
       </div>
+
+      <div class="flex flex-col gap-5">
+        <!-- display name -->
+        <div>
+          <label for="displayName" class="block font-bold">display name</label>
+          <input
+            type="text"
+            id="displayName"
+            placeholder="the name displayed in chats"
+            class="border w-full border-gray-400 outline-none p-2 shadow-inner"
+          />
+        </div>
+        <!-- about me -->
+        <div>
+          <label for="aboutMe" class="block font-bold">about me</label>
+          <textarea
+            name=""
+            id="aboutMe"
+            class="border w-full border-gray-400 outline-none p-2 shadow-inner"
+          ></textarea>
+          <small>(max 200 characters)</small>
+        </div>
+        <!-- gemder -->
+        <div>
+          <label for="gender" class="block font-bold">gender</label>
+          <select
+            name=""
+            id="gender"
+            class="border w-full border-gray-400 outline-none p-2 shadow-inner"
+          >
+            <option value="" selected disabled>----- please select -----</option>
+            <option value="">male</option>
+            <option value="">female</option>
+            <option value="">other</option>
+          </select>
+        </div>
+
+        <!-- country -->
+        <div>
+          <label for="gender" class="block font-bold">country</label>
+          <select
+            name=""
+            id="gender"
+            class="border w-full border-gray-400 outline-none p-2 shadow-inner"
+          >
+            <option value="" selected disabled>----- please select -----</option>
+            <option v-for="country in countries" :value="country">{{ country }}</option>
+          </select>
+        </div>
+
+        <!-- likes -->
+        <div>
+          <label for="aboutMe" class="block font-bold">likes</label>
+          <textarea
+            name=""
+            id="aboutMe"
+            class="border w-full border-gray-400 outline-none p-2 shadow-inner"
+          ></textarea>
+          <small>(max 200 characters)</small>
+        </div>
+
+        <!-- dislikes -->
+        <div>
+          <label for="aboutMe" class="block font-bold">dislikes</label>
+          <textarea
+            name=""
+            id="aboutMe"
+            class="border w-full border-gray-400 outline-none p-2 shadow-inner"
+          ></textarea>
+          <small>(max 200 characters)</small>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -53,6 +125,57 @@ export default {
   data() {
     return {
       user: null,
+      countries: [
+        "Afghanistan",
+        "Armenia",
+        "Azerbaijan",
+        "Bahrain",
+        "Bangladesh",
+        "Bhutan",
+        "Brunei",
+        "Cambodia",
+        "China",
+        "Cyprus",
+        "Georgia",
+        "India",
+        "Indonesia",
+        "Iran",
+        "Iraq",
+        "Israel",
+        "Japan",
+        "Jordan",
+        "Kazakhstan",
+        "Kuwait",
+        "Kyrgyzstan",
+        "Laos",
+        "Lebanon",
+        "Malaysia",
+        "Maldives",
+        "Mongolia",
+        "Myanmar",
+        "Nepal",
+        "North Korea",
+        "Oman",
+        "Pakistan",
+        "Palestine",
+        "Philippines",
+        "Qatar",
+        "Saudi Arabia",
+        "Singapore",
+        "South Korea",
+        "Sri Lanka",
+        "Syria",
+        "Taiwan",
+        "Tajikistan",
+        "Thailand",
+        "Timor-Leste",
+        "Turkey",
+        "Turkmenistan",
+        "United Arab Emirates",
+        "Uzbekistan",
+        "Vietnam",
+        "Yemen",
+      ],
     };
   },
   methods: {

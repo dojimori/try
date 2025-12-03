@@ -7,8 +7,8 @@
       <!-- chat box -->
       <div
         v-motion
-        :initial="{ opacity: 0, y: 100 }"
-        :enter="{ opacity: 1, y: 0 }"
+        :initial="{ opacity: 0 }"
+        :enter="{ opacity: 1 }"
         :duration="300"
         class="shadow-xl flex-1 flex flex-col justify-between"
       >
@@ -17,7 +17,7 @@
           <h2 class="font-bold text-[#29487d]">Open Line</h2>
           <button
             @click="logout"
-            class="bg-slate-300 px-3 py-1.5 border border-slate-400 text-[#29487d] font-bold cursor-pointer flex items-center gap-2 hover:bg-slate-200 hover:translate-y-[-3px] duration-200"
+            class="bg-slate-100 px-3 py-1.5 border border-slate-400 text-[#29487d] font-bold cursor-pointer flex items-center gap-2 hover:bg-slate-200 hover:translate-y-[-3px] duration-200"
           >
             <ph-sign-out></ph-sign-out>
             Logout
