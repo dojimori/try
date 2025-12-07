@@ -219,16 +219,14 @@ export default {
     PhArrowBendDownLeft,
   },
   computed: {
-    authStore() {
+    store() {
       return useStore();
     },
   },
 
   methods: {
     async fetchUser() {
-      // const user = await userApi.getMe();
-      // const user = this.$store.state.user;
-      const user = this.authStore.getUser;
+      const user = this.store.getUser;
       this.username = user.username;
     },
 
@@ -249,6 +247,7 @@ export default {
       if (this.dislikes) formData.append("dislikes", this.dislikes);
 
       // await userApi.updateProfile(formData);
+      this.store.updateUser(formData);
     },
   },
   mounted() {

@@ -61,11 +61,14 @@ export const useStore = defineStore('auth', {
         async updateUser(credentials) {
             this.isLoading = true;
             try {
-                await userApi.updateProfile(credentials);
+                const { data } = await userApi.updateProfile(credentials);
+                this.user = data.user;
+                return data.user;
             } catch (error) {
                 throw error;
             } finally {
                 this.isLoading = false;
+                console.log("%cprofile updated!", "color: green;");
             }
         },
 
