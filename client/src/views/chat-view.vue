@@ -101,9 +101,9 @@
             <button
               type="button"
               @click="showEmoji = !showEmoji"
-              class="emoji-btn text-xs cursor-pointer text-gray-600 mx-2"
+              class="emoji-btn cursor-pointer text-gray-600 mx-2"
             >
-              <i class="ph ph-smiley text-lg"></i>
+              <i class="ph ph-smiley" style="font-size: 1.4em"></i>
             </button>
 
             <button

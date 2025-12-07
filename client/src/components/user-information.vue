@@ -23,43 +23,49 @@
         <!-- joined at -->
         <div class="flex justify-between">
           <span class="font-bold text-gray-600">joined at</span>
-          <span>11/24/2025</span>
+          <span class="text-xs text-gray-500">{{ user.createdAt }}</span>
         </div>
 
         <!-- gender -->
         <div class="flex justify-between">
           <span class="font-bold text-gray-600">gender</span>
-          <span>-</span>
+          <span v-if="!user.profile.gender">-</span>
+          <span v-else>{{ user.profile.gender }}</span>
         </div>
 
         <!-- country -->
         <div class="flex justify-between">
           <span class="font-bold text-gray-600">country</span>
-          <span>-</span>
+          <span v-if="!user.profile.country || user.profile.country != null">-</span>
+          <span v-else>{{ user.profile.country }}</span>
         </div>
 
         <!-- relationships -->
         <div class="flex justify-between">
-          <span class="font-bold text-gray-600">relationships</span>
-          <span>-</span>
+          <span class="font-bold text-gray-600">relationship</span>
+          <span v-if="!user.profile.relationship">-</span>
+          <span v-else>{{ user.profile.relationship }}</span>
         </div>
 
         <!-- interested in -->
         <div class="flex justify-between">
           <span class="font-bold text-gray-600">interested in</span>
-          <span>-</span>
+          <span v-if="!user.profile.interests || user.profile.interests != null">-</span>
+          <span v-else>{{ user.profile.interests }}</span>
         </div>
 
         <!-- likes -->
         <div class="flex justify-between">
           <span class="font-bold text-gray-600">likes</span>
-          <span>-</span>
+          <span v-if="!user.profile.likes || user.profile.likes != null">-</span>
+          <span v-else>{{ user.profile.likes }}</span>
         </div>
 
         <!-- dislikes -->
         <div class="flex justify-between">
           <span class="font-bold text-gray-600">dislikes</span>
-          <span>-</span>
+          <span v-if="!user.profile.dislikes || user.profile.dislikes != null">-</span>
+          <span v-else>{{ user.profile.dislikes }}</span>
         </div>
       </div>
     </div>
