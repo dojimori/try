@@ -7,7 +7,7 @@ import morgan from 'morgan'
 import cors from 'cors'
 import session from 'express-session'
 import { initializeSocketHandlers } from "./sockets"
-
+import path from "path"
 const app = express();
 const server = http.createServer(app)
 
@@ -37,13 +37,15 @@ app.use(session({
   }
 }))
 
+const root = process.cwd();
+
+app.use('/uploads', express.static(path.join(root, 'uploads')))
 app.use('/api/auth', authRoute);
 app.use('/api/users', userRoute);
 
 
 initializeSocketHandlers(io);
-
-
 server.listen(8080, () => {
   console.log('Server running on  http://localhost:8080');
 });
+

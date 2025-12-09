@@ -28,7 +28,7 @@ export const getMe = async (req: Request, res: Response) => {
 export const updateProfile = async (req: Request, res: Response) => {
     try {
         const authed = req.session.user;
-        const file = (req as any).profile;
+        const file = (req as any).file;
         const {
             username,
             displayName,
@@ -44,7 +44,7 @@ export const updateProfile = async (req: Request, res: Response) => {
 
         const profilePicture = file ? `/uploads/profiles/${file.filename}` : undefined;
 
-        console.log(profilePicture)
+        console.log(file)
 
         await prisma.profile.upsert({
             where: { userId: authed.id },
