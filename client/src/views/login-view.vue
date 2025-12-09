@@ -83,10 +83,10 @@
   scale: 1.1;
   transform: rotate(1deg);
 }
-/* 
+
 * {
   font-size: 14px;
-} */
+}
 
 input {
   animation: default 0.3s forwards;
