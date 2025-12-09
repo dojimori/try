@@ -39,7 +39,11 @@
       <!-- form -->
       <div class="flex flex-col justify-center mt-2">
         <div class="w-full flex justify-between gap-8 items-center">
-          <img src="/def_pfp_1.jpg" alt="" class="object-cover w-20 h-20" />
+          <img
+            :src="imagePreview || '/def_pfp_1.jpg'"
+            alt=""
+            class="object-cover w-30 h-30 border-3 border-gray-400"
+          />
 
           <div class="flex-1 flex flex-col gap-2 p-2">
             <input
@@ -222,6 +226,7 @@ export default {
       likes: "",
       dislikes: "",
       isUpdateSuccessful: false,
+      imagePreview: null,
     };
   },
   components: {
@@ -243,14 +248,21 @@ export default {
     },
 
     fileHandler(e) {
-      this.imageFile = e.target.files[0];
+      // this.imageFile = e.target.files[0];
+      // if ()
+      const file = e.target.files[0];
+
+      if (file) {
+        this.imageFile = file;
+        this.imagePreview = URL.createObjectURL(file);
+      }
     },
 
     async saveHandler() {
       try {
         this.isUpdateSuccessful = false;
         const formData = new FormData();
-        if (this.imageFile) formData.append("imageFile", this.imageFile);
+        if (this.imageFile) formData.append("profile", this.imageFile);
         if (this.username) formData.append("username", this.username);
         if (this.displayName) formData.append("displayName", this.displayName);
         if (this.aboutMe) formData.append("aboutMe", this.aboutMe);
@@ -270,6 +282,13 @@ export default {
   },
   mounted() {
     this.fetchUser();
+  },
+
+  beforeUnmount() {
+    if (this.imagePreview) {
+      URL.revokeObjectURL(this.imagePreview);
+      this.imagePreview = null;
+    }
   },
 };
 </script>
