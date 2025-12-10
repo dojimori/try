@@ -12,8 +12,13 @@ const onDisconnectHandler = (io: Server, socket: Socket) => {
 export const userHandler = (io: Server, socket: Socket) => {
     socket.on('join', (data) => {
         // console.log(`${username} joined.`)
-        users.set(socket.id, { username: data.username, id: data.id });
-        io.emit('joined', `${data.username} joined the chat`)
+        users.set(socket.id, {
+            username: data.username, 
+            id: data.id, 
+            displayName: data.displayName
+        });
+
+        io.emit('joined', `${data.displayName || data.username} joined the chat`)
     })
 
 

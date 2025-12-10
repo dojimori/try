@@ -344,6 +344,7 @@ export default {
     socket.emit("join", {
       username: this.user.username,
       id: this.user.id,
+      displayName: this.user.profile.displayName ?? null,
     });
 
     socket.on("joined", (data) => {
@@ -368,7 +369,8 @@ export default {
       this.messages.push({
         message: data.message,
         time: data.time,
-        username: data.user.username,
+        // username: ,
+        username: data.user.displayName ?? data.user.username,
         type: "chat",
         userId: data.user.id,
       });

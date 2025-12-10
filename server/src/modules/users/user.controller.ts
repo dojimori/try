@@ -49,7 +49,7 @@ export const updateProfile = async (req: Request, res: Response) => {
         await prisma.profile.upsert({
             where: { userId: authed.id },
             create: {
-                displayName,
+                displayName: displayName ?? undefined,
                 profilePicture: profilePicture ?? undefined,
                 gender,
                 aboutMe,
