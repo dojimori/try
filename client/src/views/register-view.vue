@@ -72,6 +72,10 @@
 </template>
 
 <style scoped>
+* {
+  font-size: 14px;
+}
+
 .enter-btn {
   background-color: #29487d;
   background: linear-gradient(rgb(98, 122, 173), rgb(89, 114, 168));
