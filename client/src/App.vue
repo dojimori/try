@@ -42,7 +42,7 @@ body {
   font-size: 14px;
   min-height: 100vh;
   margin: 0;
-  padding: 20px;
+  padding: 12px;
 }
 .header-btn {
   font-size: 11px;

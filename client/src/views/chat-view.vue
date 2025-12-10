@@ -1,11 +1,11 @@
 <template>
   <!-- main window -->
-  <main class="flex flex-col gap-0 border border-gray-400 w-[1080px]">
+  <main class="flex flex-col gap-0 border border-gray-400 w-full md:w-[1080px]">
     <header-component></header-component>
-    <div class="flex flex-col md:flex-row justify-center w-full mx-autow">
+    <div class="flex flex-col md:flex-row justify-center w-full">
       <user-information></user-information>
       <!-- Chat Section -->
-      <div class="flex-1 bg-white h-[660px] flex">
+      <div class="flex-1 bg-white min-h-[660px] flex">
         <!-- chat box -->
         <div
           v-motion

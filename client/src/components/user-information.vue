@@ -2,7 +2,7 @@
   <!-- user profile section -->
   <div
     v-motion-slide-right
-    class="bg-white border border-gray-200 p-4 shadow-lg md:w-[200px] w-full overflow-y-auto"
+    class="bg-white border border-gray-200 p-4 shadow-xs md:shadow-lg md:w-[200px] w-full overflow-y-auto"
   >
     <div v-if="user" class="flex flex-col items-center justify-center">
       <!-- pfp -->
