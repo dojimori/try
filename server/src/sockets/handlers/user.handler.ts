@@ -15,7 +15,8 @@ export const userHandler = (io: Server, socket: Socket) => {
         users.set(socket.id, {
             username: data.username, 
             id: data.id, 
-            displayName: data.displayName
+            displayName: data.displayName,
+            profilePicture: data.profilePicture
         });
 
         io.emit('joined', `${data.displayName || data.username} joined the chat`)

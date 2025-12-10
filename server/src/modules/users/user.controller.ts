@@ -51,23 +51,23 @@ export const updateProfile = async (req: Request, res: Response) => {
             create: {
                 displayName: displayName ?? undefined,
                 profilePicture: profilePicture ?? undefined,
-                gender,
-                aboutMe,
-                likes,
-                dislikes,
-                country,
+                gender: gender ?? undefined,
+                aboutMe: aboutMe ?? undefined,
+                likes: likes ?? undefined,
+                dislikes: dislikes ?? undefined,
+                country: country ?? undefined,
                 user: {
                     connect: { id: authed.id }
                 }
             },
             update: {
-                displayName,
+                displayName: displayName ?? undefined,
                 profilePicture: profilePicture ?? undefined,
-                gender,
-                aboutMe,
-                likes,
-                dislikes,
-                country,
+                gender: gender ?? undefined,
+                aboutMe: aboutMe ?? undefined,
+                likes: likes ?? undefined,
+                dislikes: dislikes ?? undefined,
+                country: country ?? undefined,
             }
         })
 
