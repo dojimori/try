@@ -6,7 +6,14 @@
   >
     <div v-if="user" class="flex flex-col items-center justify-center">
       <!-- pfp -->
-      <img src="/def_pfp_6.jpg" class="pfp" />
+      <img
+        :src="
+          user.profile.profilePicture
+            ? `http://localhost:8080${user.profile.profilePicture}`
+            : '/def_pfp_6.jpg'
+        "
+        class="pfp"
+      />
       <!-- username -->
       <h1 class="mt-4 font-bold">
         {{ user.username }}
