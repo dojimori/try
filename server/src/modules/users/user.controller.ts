@@ -47,6 +47,8 @@ export const updateProfile = async (req: Request, res: Response) => {
 
         console.log(file)
 
+        // TODO: check aboutMe, likes, and dislikes length if it exceeds to 200 characters
+
         await prisma.profile.upsert({
             where: { userId: authed.id },
             create: {
