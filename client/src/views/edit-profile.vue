@@ -109,6 +109,25 @@
             </select>
           </div>
 
+          <!-- relationship -->
+          <div>
+            <label for="relationship" class="block font-bold">relationship</label>
+            <select
+              name=""
+              id="relationship"
+              v-model="relationship"
+              class="border w-full border-gray-400 outline-none p-2 shadow-inner focus:shadow-none"
+            >
+              <option disabled selected>----- please select -----</option>
+              <option value="single">single</option>
+              <option value="married">married</option>
+              <option value="taken">taken</option>
+              <option value="loveTriangle">love triangle</option>
+              <option value="itsComplicated">its complicated</option>
+              <option value="oneSided">one sided</option>
+            </select>
+          </div>
+
           <!-- country -->
           <div>
             <label for="gender" class="block font-bold">country</label>
@@ -231,6 +250,7 @@ export default {
       country: "",
       likes: "",
       dislikes: "",
+      relationship: "",
       isUpdateSuccessful: false,
       imagePreview: null,
       userProfilePicture: null,
