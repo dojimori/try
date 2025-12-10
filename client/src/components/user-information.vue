@@ -51,7 +51,7 @@
         <div class="flex justify-between">
           <span class="font-bold text-gray-600">relationship</span>
           <span v-if="!user.profile?.relationship">-</span>
-          <span v-else>{{ user.profile.relationship }}</span>
+          <span v-else>{{ separateCamelCase(user.profile.relationship) }}</span>
         </div>
 
         <!-- interested in -->
@@ -93,6 +93,7 @@
 .pfp {
   width: 75px;
 }
+
 * {
   font-size: 12px;
 }
@@ -117,6 +118,14 @@ export default {
   computed: {
     store() {
       return useStore();
+    },
+  },
+
+  methods: {
+    separateCamelCase: (camelCaseString) => {
+      // use a regular expression to find uppercase letters that are not at the beginning of the string.
+      // replace these with a space followed by the lowercase version of the letter.
+      return camelCaseString.replace(/([A-Z])/g, " $1").toLowerCase();
     },
   },
 

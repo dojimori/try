@@ -279,6 +279,7 @@ export default {
       this.country = user.profile?.country;
       this.likes = user.profile?.likes;
       this.dislikes = user.profile?.dislikes;
+      this.relationship = user.profile?.relationship;
       console.log(user);
     },
 
@@ -305,6 +306,7 @@ export default {
         if (this.country) formData.append("country", this.country);
         if (this.likes) formData.append("likes", this.likes);
         if (this.dislikes) formData.append("dislikes", this.dislikes);
+        if (this.relationship) formData.append("relationship", this.relationship);
 
         // await userApi.updateProfile(formData);
         await this.store.updateUser(formData);
