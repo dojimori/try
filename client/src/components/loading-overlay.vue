@@ -9,7 +9,7 @@
   >
     <div
       v-show="loading"
-      class="absolute z-100 top-0 left-0 w-screen h-screen bg-white/50 flex gap-2 flex-col items-center justify-center"
+      class="absolute z-100 top-0 left-0 w-[100%] h-[100%] bg-white/50 flex gap-2 flex-col items-center justify-center"
     >
       <vue-spinner-beat color="#29487d"></vue-spinner-beat>
       <small class="text-[#29487d]">Please wait...</small>
