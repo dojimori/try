@@ -71,7 +71,9 @@
                   <small class="mr-2">{{
                     data.userId == user.id ? "You" : data.username
                   }}</small>
-                  <small class="text-gray-400 font-light">{{ data.time }}</small>
+                  <small class="text-gray-400 font-light">{{
+                    new Date(data.time).toLocaleTimeString([], { timeStyle: "short" })
+                  }}</small>
                 </p>
               </div>
               <!-- joined message -->
@@ -238,6 +240,7 @@ import { PhPaperPlaneRight, PhSmiley } from "@phosphor-icons/vue";
 import HeaderComponent from "@/components/header-component.vue";
 import authApi from "@/utils/api/auth.api";
 import { useStore } from "@/store";
+import api from "@/utils/api";
 
 export default {
   name: "ChatView",
@@ -269,9 +272,28 @@ export default {
   },
 
   methods: {
+    async fetchChats() {
+      try {
+        const { data } = await api.get("/chats");
+        const { chats } = data;
+
+        chats.forEach((chat) => {
+          this.messages.push({
+            message: chat.message,
+            time: chat.time,
+            username: chat.user.profile?.displayName || chat.user.username,
+            type: "chat",
+            profilePicture: chat.user.profile?.profilePicture || null,
+            userId: chat.user.id,
+          });
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
     async sendMessage() {
       const currentTime = new Date().toLocaleTimeString([], { timeStyle: "short" });
-      // TODO: replace to communicate with an API later
       if (this.message.trim() == "") return;
 
       socket.emit("chat:message", {
@@ -341,7 +363,11 @@ export default {
       });
     },
   },
+
+  // ! TODO: fetch chats from db
   async mounted() {
+    this.fetchChats();
+
     // this.user = await userApi.getMe();
     // this.user = this.$store.state.user;
     this.user = this.store.getUser;
