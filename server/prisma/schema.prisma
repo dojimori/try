@@ -20,6 +20,8 @@ model User {
   password String
 
   profile Profile?
+  chats Chat[]
+
   createdAt DateTime @default(now())
 }
 
@@ -54,3 +56,19 @@ model Profile {
   userId Int @unique
 
 }
+
+enum ChatType {
+  join
+  left
+  chat 
+}
+
+model Chat {
+  id Int @id @default(autoincrement())
+  message String
+  type ChatType
+  time DateTime @default(now())
+
+  user User? @relation(fields: [userId], references: [id])
+  userId Int?
+} 
