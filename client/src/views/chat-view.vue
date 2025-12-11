@@ -363,12 +363,6 @@ export default {
     });
 
     socket.on("active-users", (users) => {
-      // console.log("active-users", users);
-      // users.forEach((user) => {
-      //   console.log("this is here");
-      //   console.log(user);
-      // });
-
       this.activeUsers = users;
     });
 
