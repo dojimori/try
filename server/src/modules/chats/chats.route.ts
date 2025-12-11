@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { getAllChats } from './chat.controller';
+import { getAllChats } from './chats.controller';
 const router = Router();
 
 router.get('/', getAllChats)

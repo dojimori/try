@@ -4,8 +4,8 @@ import { Server } from 'socket.io'
 
 /* routes */
 import authRoute from './modules/auth/auth.route'
-import usersRoute from './modules/users/user.route'
-import chatsRoute from './modules/chat/chat.route'
+import usersRoute from './modules/users/users.route'
+import chatsRoute from './modules/chats/chats.route'
 /* end routes */
 
 import morgan from 'morgan'
