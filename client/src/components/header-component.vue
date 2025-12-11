@@ -36,6 +36,7 @@
 import { PhSignOut, PhPencilSimple, PhGlobe } from "@phosphor-icons/vue";
 import authApi from "@/utils/api/auth.api";
 import { socket } from "@/utils/socket";
+import { useStore } from "@/store";
 
 export default {
   components: {
@@ -44,19 +45,31 @@ export default {
     PhGlobe,
   },
 
+  // props: {
+  //   logout: {
+  //     type: Function,
+  //     required: true,
+  //   },
+  // },
+
+  computed: {
+    store() {
+      return useStore();
+    },
+  },
+
   methods: {
     async logout() {
-      // localStorage.removeItem("user");
-      // await fetch("http://localhost:8080/api/auth/logout", {
-      //   method: "POST",
-      //   credentials: "include",
-      // });
+      try {
+        await authApi.logout();
+        // this.store.isAuthenticated = false;
+        // this.store.user = null;
+        this.store.clearUser();
 
-      await authApi.logout();
-
-      socket.emit("left");
-
-      this.$router.push("/");
+        this.$router.push("/");
+      } catch (error) {
+        console.error(error);
+      }
     },
   },
 };

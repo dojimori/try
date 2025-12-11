@@ -319,19 +319,19 @@ export default {
       return `<span class='text-red text-wrap'>${rendered}</span>`;
     },
 
-    async logout() {
-      // localStorage.removeItem("user");
-      // await fetch("http://localhost:8080/api/auth/logout", {
-      //   method: "POST",
-      //   credentials: "include",
-      // });
+    // async logout() {
+    //   // localStorage.removeItem("user");
+    //   // await fetch("http://localhost:8080/api/auth/logout", {
+    //   //   method: "POST",
+    //   //   credentials: "include",
+    //   // });
 
-      await authApi.logout();
+    //   await authApi.logout();
 
-      socket.emit("left");
+    //   socket.emit("left");
 
-      this.$router.push("/");
-    },
+    //   this.$router.push("/");
+    // },
 
     scrollToBottom() {
       this.$nextTick(() => {

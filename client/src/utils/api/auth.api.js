@@ -10,7 +10,8 @@ export default {
 
             return response;
         } catch (error) {
-            console.error(error)
+            // console.error(error)
+            throw error;
         }
 
     },
@@ -18,18 +19,23 @@ export default {
     async logout() {
         try {
             await api.post("/auth/logout");
-        } catch(error) {
-            console.error(error)
+        } catch (error) {
+            throw error;
         }
-        
+
     },
 
     async register(username, password) {
-        const response = await api.post("/auth/register", {
-          username,
-          password,
-        });
+        try {
+            const response = await api.post("/auth/register", {
+                username,
+                password,
+            });
 
-        return response
+            return response
+        } catch(error) {
+            throw error;
+        }
+ 
     }
 }
