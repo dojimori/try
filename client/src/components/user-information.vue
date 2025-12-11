@@ -30,7 +30,9 @@
         <!-- joined at -->
         <div class="flex justify-between">
           <span class="font-bold text-gray-600">joined at</span>
-          <span class="text-xs text-gray-500">{{ user.createdAt }}</span>
+          <span class="text-xs text-gray-500">{{
+            new Date(user.createdAt).toLocaleDateString()
+          }}</span>
         </div>
 
         <!-- gender -->
