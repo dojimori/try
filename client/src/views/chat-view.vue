@@ -287,6 +287,8 @@ export default {
             userId: chat.user.id,
           });
         });
+
+        this.scrollToBottom();
       } catch (error) {
         console.log(error);
       }
