@@ -68,7 +68,7 @@ model Chat {
   message String
   type ChatType
   time DateTime @default(now())
-
+  
   user User? @relation(fields: [userId], references: [id])
   userId Int?
 } 
