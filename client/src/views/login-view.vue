@@ -1,54 +1,34 @@
 <template>
-  <form
-    v-motion-fade
-    class="bg-white p-4 w-[300px] border border-slate-400 shadow-md"
-    @submit.prevent="login"
-  >
-    <h4 class="font-bold text-center">Join chat</h4>
-    <div class="border w-full border-gray-300"></div>
-    <div class="flex items-center justify-center">
-      <span
-        v-motion-fade
-        v-if="errorMessage"
-        class="flex-1 bg-red-100 border border-red-300-300 p-2 text-red-800 shadow-inner mt-2"
-        >{{ errorMessage }}</span
-      >
-      <span
-        v-motion-fade
-        v-else-if="successMessage"
-        class="flex-1 mt-2 bg-green-100 border border-green-300-300 p-2 text-green-800 shadow-inner"
-        >{{ successMessage }}</span
-      >
+  <form v-motion-fade class="bg-white p-4 w-[340px] border border-slate-400 shadow-md" @submit.prevent="login">
+    <div class="mt-4 mb-2">
+      <h4 class="font-bold text-center">Join chat</h4>
+      <div class="flex items-center justify-center">
+        <span v-motion-fade v-if="errorMessage"
+          class="flex-1 bg-red-100 border border-red-300-300 p-2 text-red-800 shadow-inner mt-2">{{ errorMessage
+          }}</span>
+        <span v-motion-fade v-else-if="successMessage"
+          class="flex-1 mt-2 bg-green-100 border border-green-300-300 p-2 text-green-800 shadow-inner">{{ successMessage
+          }}</span>
+      </div>
     </div>
 
+    <div class="border border-dashed w-full border-gray-300"></div>
+
     <div class="mt-2">
-      <input
-        type="text"
-        placeholder="Username"
-        v-model="username"
-        name="username"
-        class="border border-gray-400 px-4 py-1.5 w-full shadow-inner outline-none"
-      />
+      <input type="text" placeholder="Username" v-model="username" name="username"
+        class="border border-gray-400 px-4 py-1.5 w-full shadow-inner outline-none" />
 
-      <input
-        type="password"
-        placeholder="Password"
-        v-model="password"
-        name="password"
-        class="border border-gray-400 px-4 py-1.5 w-full shadow-inner outline-none mt-2"
-      />
+      <input type="password" placeholder="Password" v-model="password" name="password"
+        class="border border-gray-400 px-4 py-1.5 w-full shadow-inner outline-none mt-2" />
 
-      <button
-        :disabled="isLoading"
-        class="w-full p-1.5 text-white mt-2 shadow-inner flex items-center justify-center cursor-pointer hover:shadow-md enter-btn"
-      >
+      <button :disabled="isLoading"
+        class="w-full p-3 text-white mt-2 shadow-inner flex items-center justify-center cursor-pointer hover:shadow-md enter-btn">
         <vue-spinner v-if="isLoading" size="20"></vue-spinner>
         <span v-else class="font-bold tracking-wider">login</span>
       </button>
       <router-link to="/register">
         <button
-          class="text-[#29487d] w-full p-1.5 mt-2 shadow-inner border border-gray-200 cursor-pointer hover:scale-105 duration-200 transition-all ease-in"
-        >
+          class="text-[#29487d] w-full p-3 mt-2 shadow-inner border border-gray-200 cursor-pointer hover:scale-105 duration-200 transition-all ease-in">
           <span class="font-bold">register</span>
         </button>
       </router-link>
@@ -61,11 +41,7 @@
         github
       </a>
       |
-      <a
-        href="https://www.facebook.com/jo.jyn626"
-        target="_blank"
-        class="text-center underline"
-      >
+      <a href="https://www.facebook.com/jo.jyn626" target="_blank" class="text-center underline">
         facebook
       </a>
     </small>
@@ -81,7 +57,6 @@
 
 .enter-btn:hover {
   scale: 1.1;
-  transform: rotate(1deg);
 }
 
 * {
@@ -104,6 +79,7 @@ form {
   from {
     width: 800px;
   }
+
   to {
     width: 300px;
   }
