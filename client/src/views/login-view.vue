@@ -35,7 +35,9 @@
     </div>
   </form>
 
-  <div class="w-full text-center">
+  <footer class="w-full text-center">
+    <h4>Connect with the developer</h4>
+
     <small class="cursor-pointer">
       <a href="https://github.com/dojimori" target="_blank" class="text-center underline">
         github
@@ -45,7 +47,7 @@
         facebook
       </a>
     </small>
-  </div>
+  </footer>
 </template>
 
 <style scoped>
