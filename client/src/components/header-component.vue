@@ -11,8 +11,9 @@
 
       <router-link :to="{ name: 'UserProfile', params: { 'username': 'doujin22' } }"
         class="header-btn hover:translate-y-[-1.5px] cursor-pointer">
-        <ph-user></ph-user>
-        profile
+        <!-- <ph-user></ph-user> -->
+        <ph-app-window></ph-app-window>
+        timeline
       </router-link>
 
       <router-link to="/profile/edit" class="header-btn hover:translate-y-[-1.5px] cursor-pointer">
@@ -29,7 +30,7 @@
 </template>
 
 <script>
-import { PhSignOut, PhPencilSimple, PhGlobe, PhUser } from "@phosphor-icons/vue";
+import { PhSignOut, PhPencilSimple, PhGlobe, PhUser, PhAppWindow } from "@phosphor-icons/vue";
 import authApi from "@/utils/api/auth.api";
 import { socket } from "@/utils/socket";
 import { useStore } from "@/store";
@@ -40,6 +41,7 @@ export default {
     PhSignOut,
     PhGlobe,
     PhUser,
+    PhAppWindow
   },
 
   // props: {

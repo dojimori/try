@@ -1,50 +1,49 @@
 <template>
-    <main class="flex flex-col gap-0 border border-gray-400 sm:w-3xl lg:w-[1080px]">
+    <main class="flex flex-col gap-0 border border-gray-400 w-full sm:w-2xl md:w-3xl lg:w-7xl min-h-[400px]">
         <header-component></header-component>
+        <div class="flex-1 flex flex-col lg:flex-row justify-center">
+            <user-information></user-information>
+            <div class="flex-1 bg-white">
+                <div
+                    class="p-2 flex-1 flex flex-col gap-3 min-h-[400px] max-h-[400px] lg:min-h-[660px] lg:max-h-[660px] overflow-y-scroll">
 
-        <div class="bg-white p-2" v-motion-fade>
 
-            <div class="flex gap-12">
-                <div class=" border-2 border-gray-300 p-2">
-                    <img src="/def_pfp_3.jpg" class="w-[120px]" alt="">
-                </div>
+                    <!-- <input type="text"> -->
 
-                <div class="mt-4">
-                    <h4 v-if="this.user?.username" style="font-size: 1.2em; ">{{ this.user.username }}</h4>
+                    <p class="font-bold">Post something here lmao</p>
+
                 </div>
             </div>
-            <div>
-                <h1>timeline</h1>
-            </div>
+
         </div>
     </main>
 </template>
 
 <script>
-import HeaderComponent from '@/components/header-component.vue';
-import { useStore } from '@/store';
-
+import HeaderComponent from "@/components/header-component.vue";
+import { useStore } from "@/store";
+import UserInformation from "@/components/user-information.vue";
 
 export default {
     components: {
-        HeaderComponent
+        HeaderComponent,
+        UserInformation,
     },
 
     data() {
         return {
-            user: null
-        }
+            user: null,
+        };
     },
 
     computed: {
         store() {
             return useStore();
-        }
+        },
     },
 
     mounted() {
-        this.user = this.store.getUser
-    }
-}
-
+        this.user = this.store.getUser;
+    },
+};
 </script>
